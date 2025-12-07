@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Mafia Bot | Maxfiylik Siyosati</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        h2 i {
+            background: rgba(231, 76, 60, 0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: #e74c3c;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        
+        .highlight {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .contact-box {
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.2) 0%, rgba(41, 128, 185, 0.2) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .contact-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .email {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #3498db;
+            transition: all 0.3s;
+        }
+        
+        .email:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .update-date {
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                🕵️♂️
+            </div>
+            <h1>True Mafia Bot</h1>
+            <p class="subtitle">Maxfiylik va Xavfsizlik Siyosati</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2><i class="fas fa-database"></i> Ma'lumotlar To'plami</h2>
+                <p>Bot faqat o'yinni boshqarish uchun zarur ma'lumotlarni saqlaydi:</p>
+                <ul>
+                    <li><strong>Foydalanuvchi ID raqami</strong> - Telegram tizimidagi unikal identifikator</li>
+                    <li><strong>Ism va username</strong> - profilni aniqlash uchun</li>
+                    <li><strong>O'yin statistikasi</strong> - g'alaba, mag'lubiyat va rollar tarixi</li>
+                    <li><strong>Guruh ma'lumotlari</strong> - faqat aktiv o'yin davrida</li>
+                </ul>
+                <div class="highlight">
+                    <strong>Diqqat:</strong> Hech qanday shaxsiy suhbatlar, fotosuratlar yoki fayllar saqlanmaydi.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-shield-alt"></i> Ma'lumotlardan Foydalanish</h2>
+                <ul>
+                    <li><strong>O'yin boshqaruvi</strong> - rollarni tarqatish, ovozlarni hisoblash</li>
+                    <li><strong>Shaxsiy statistika</strong> - /stats buyrug'i orqali ko'rsatish</li>
+                    <li><strong>Bot takomillashishi</strong> - faqat anonimlashtirilgan ma'lumotlar</li>
+                    <li><strong>O'yin tajribasi</strong> - sizning imkoniyatlaringizga moslashtirish</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-lock"></i> Ma'lumotlarni Himoya Qilish</h2>
+                <p>Barcha ma'lumotlar xavfsiz serverlarda shifrlangan holda saqlanadi:</p>
+                <ul>
+                    <li><strong>Xavfsiz serverlar</strong> - yuqori darajadagi himoya</li>
+                    <li><strong>Shifrlash</strong> - barcha ma'lumotlar AES-256 bilan shifrlangan</li>
+                    <li><strong>Muntazam audit</strong> - tizim xavfsizligini tekshirish</li>
+                    <li><strong>Cheklangan kirish</strong> - faqat zarur xodimlargina ruxsat</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-user-shield"></i> Foydalanuvchi Huquqlari</h2>
+                <ul>
+                    <li><strong>Ma'lumotlarni ko'rish</strong> - /stats buyrug'i orqali</li>
+                    <li><strong>Ma'lumotlarni o'chirish</strong> - /deletedata buyrug'i bilan</li>
+                    <li><strong>Botni bloklash</strong> - istalgan vaqtda to'xtatishingiz mumkin</li>
+                    <li><strong>Shikoyat qilish</strong> - bog'lanish orqali</li>
+                </ul>
+                <div class="highlight">
+                    <strong>Yodda tuting:</strong> Ma'lumotlaringizni o'chirish barcha statistikangizni yo'q qiladi.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-ban"></i> Uchinchi Tomonlarga O'tkazmaslik</h2>
+                <p>Biz sizning ishonchingizni qadrlaymiz:</p>
+                <ul>
+                    <li><strong>Hech qanday sotish</strong> - ma'lumotlar hech kimga sotilmaydi</li>
+                    <li><strong>Reklama berishmaslik</strong> - reklama maqsadida foydalanilmaydi</li>
+                    <li><strong>Hukumat talablari</strong> - qonuniy talabgacha ochiq emas</li>
+                    <li><strong>Ichki foydalanish</strong> - faqat botni yaxshilash uchun</li>
+                </ul>
+            </div>
+            
+            <div class="contact-box">
+                <h3><i class="fas fa-headset"></i> Qo'llab-quvvatlash va Bog'lanish</h3>
+                <p>Savollaringiz yoki takliflaringiz bo'lsa, biz bilan bog'lanishingiz mumkin:</p>
+                <a href="mailto:support@truemafia.com" class="email">
+                    <i class="fas fa-envelope"></i> support@truemafia.com
+                </a>
+                <p style="margin-top: 15px;">Javob: 24-48 soat ichida</p>
+            </div>
+            
+            <div class="footer">
+                <p>© 2024 True Mafia Bot. Barcha huquqlar himoyalangan.</p>
+                <p class="update-date">Oxirgi yangilanish: 15 Noyabr 2024</p>
+                <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">
+                    Ushbu sahifa GitHub Pages-da host qilinadi. Havola: https://[FoydalanuvchiNomi].github.io/true-mafia-privacy/
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sana yangilash
+        const months = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'Iyun', 
+                      'Iyul', 'Avgust', 'Sentabr', 'Oktabr', 'Noyabr', 'Dekabr'];
+        const now = new Date();
+        const formattedDate = now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+        document.querySelector('.update-date').textContent = 'Oxirgi yangilanish: ' + formattedDate;
+        
+        // Sahifa animatsiyasi
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    section.style.transition = 'opacity 0.6s, transform 0.6s';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
